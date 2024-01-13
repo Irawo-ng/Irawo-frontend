@@ -1,0 +1,103 @@
+@font-face {
+    font-family: "San Francisco";
+    font-weight: 400;
+    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+  }
+.signupformcontainer, .loginformcontainer{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    font-family: 'San Francisco';
+}
+form{
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+}
+form > h1{
+    margin: 29px 0;
+    font-size: 40px;
+}
+form > .inputcontainer{
+    display: flex;
+    flex-direction: column;
+    width: 563px;
+}
+.inputcontainer input{
+    border: 0.5pt solid #ffffff;
+    outline: none;
+    border-radius: 8px;
+    padding: 24px 35px;
+    margin: 10px 0;
+    background: transparent;
+    font-size: 20px;
+    color: #ffffff;
+}
+.password-container{
+    display: flex;
+    flex-direction: column;
+}
+.password-container > a{
+    text-align: right;
+    color: #968426;
+    text-decoration: none;
+}
+.btncontainer{
+    display: flex;
+    flex-direction: column;
+    width: 563px;
+    margin: 40px 0px 0px 0px;
+    font-size: 16px;
+}
+.btncontainer > .signup-btn , .login-btn{
+    padding: 24px 35px;
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    background-color: #968426;
+    color: white;
+    font-size: 24px;
+} 
+.btncontainer > p{
+    text-align: center;
+    margin: 36px 0px 0px 0px;
+}
+
+.or-separator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 46px 0;
+    width: 563px;
+}
+
+.line {
+    /* flex: 1; */
+    height: 1px;
+    width: 199px;
+    background-color: #ffffff;
+}
+
+.or-text {
+    margin: 0 50px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.alt-login-methods{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    max-width: 563px;
+    gap: 40px;
+}
+
+.alt-login-btn{
+    background: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+}

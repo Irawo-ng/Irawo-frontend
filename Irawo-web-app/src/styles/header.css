@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&family=Slackey&display=swap");
+.header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #121213;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    border-bottom: 1px solid #585858;
+    height: 117px;
+}
+.dropdown-container{
+    position: relative;
+}
+.dropdown-div{
+    position: absolute;
+    color: white;
+    background-color: #968426;
+    width: 100%;
+    margin: 7px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-radius: 8px;
+}
+.dropdown-div button{
+    padding: 5px;
+    font-size: larger;
+    color: white;
+    background-color: #121213;
+    border-radius: 10px;
+}
+.header > h1{
+    font-family: "Slackey", sans-serif;
+    color: #d9d9d9;
+}
+.dropdown-btn{
+    padding: 8px 9px;
+    width: 400px;
+    border: 1px solid #a5a5a5;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.dropdown-btn> .categories{
+    background-color: #968426;
+    border-radius: 8px;
+    padding: 15px 20px;
+    border: none;
+    outline: none;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+}
+.dropdown-btn .no-b{
+    background: none;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-size: 18px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.icons{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+.icons button{
+    background: none;
+    border: none;
+    outline: none;
+}
