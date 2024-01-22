@@ -8,30 +8,37 @@
     display: flex;
     align-items: center;
     font-family: 'San Francisco';
+    /* background-color: red; */
+    min-width: 30vw;
 }
 form{
     display: flex;
     flex-direction: column;
     color: #ffffff;
+    width: 100%;
 }
 form > h1{
-    margin: 29px 0;
+    margin: 0px 0px  1.9rem 0px;
     font-size: 40px;
 }
 form > .inputcontainer{
     display: flex;
     flex-direction: column;
-    width: 563px;
+    /* min-width: 563px; */
 }
 .inputcontainer input{
-    border: 0.5pt solid #ffffff;
+    border: 1px solid #808080;
     outline: none;
     border-radius: 8px;
-    padding: 24px 35px;
-    margin: 10px 0;
+    padding: 1.5rem 2.5rem;
+    margin: .7rem 0;
     background: transparent;
     font-size: 20px;
     color: #ffffff;
+}
+.email-container{
+    display: flex;
+    flex-direction: column;
 }
 .password-container{
     display: flex;
@@ -41,16 +48,17 @@ form > .inputcontainer{
     text-align: right;
     color: #968426;
     text-decoration: none;
+    margin-bottom: 1rem;
 }
 .btncontainer{
     display: flex;
     flex-direction: column;
-    width: 563px;
-    margin: 40px 0px 0px 0px;
+    /* min-width: 563px; */
+    margin: 4em 0px 0px 0px;
     font-size: 16px;
 }
 .btncontainer > .signup-btn , .login-btn{
-    padding: 24px 35px;
+    padding: 1.5rem 0;
     width: 100%;
     border-radius: 8px;
     border: none;
@@ -67,19 +75,19 @@ form > .inputcontainer{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 46px 0;
-    width: 563px;
+    margin: 40px 0;
+    /* min-width: 563px; */
 }
 
 .line {
-    /* flex: 1; */
+    flex: 1;
     height: 1px;
-    width: 199px;
-    background-color: #ffffff;
+    /* min-width: 199px; */
+    background-color: #9c9c9c;
 }
 
 .or-text {
-    margin: 0 50px;
+    margin: 0 40px;
     color: #ffffff;
     font-weight: bold;
     font-size: larger;
@@ -89,15 +97,45 @@ form > .inputcontainer{
     display: flex;
     justify-content: center;
     align-items: center;
-    align-items: center;
-    max-width: 563px;
     gap: 40px;
 }
 
 .alt-login-btn{
+    text-align: center;
     background: none;
     padding: 0;
     margin: 0;
     border: none;
     outline: none;
+}
+.i-cont{
+    position: relative;
+}
+.err{
+    position: absolute;
+    top: 90%;
+    margin: auto;
+    color: rgb(228, 128, 128);
+}
+@media (width <= 731px) {
+    form > h1{
+        font-size: 35px;
+    }
+}
+
+@media (width <= 690px){
+    .signupformcontainer, .loginformcontainer{
+        min-width: 70vw;
+    }
+}
+@media (width <= 350px){
+     form > h1{
+        font-size: 25px;
+    }
+    .signupformcontainer, .loginformcontainer{
+        max-width: 90vw;
+    }
+    form{
+    width: 100%;
+}
 }

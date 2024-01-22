@@ -4,27 +4,28 @@
     src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
 }
 
-.sidebar-container {
+.sidebar{
+    background-color: #1e1e1e;
     grid-column: 1/2;
     grid-row: 1/3;
-    display: flex;
-    flex-direction: column;
-    background-color: #1e1e1e;
+    display: grid;
+    grid-template-rows: 1fr 8fr;
 }
 .profile{
-    height: 117px;
-    padding: 40px;
+    grid-row: 1/2;
+    display: flex;
+    padding: 40px 0px 0px 40px;
     border-bottom: 1px solid #585858;
 }
-.profile button h3{
-    /* font-family: 'San Francisco'; */
+.profile .profile-btn{
+    gap: 20px;
 }
-.sidebar{
-    flex: 1;
+.navbar-container{
+    grid-row: 2/3;
     display: flex;
     flex-direction: column;
 }
-.sidebar button{
+.sidebar  button{
     background-color: transparent;
     border: none;
     color: #ffffff;
@@ -54,4 +55,36 @@
 }
 .history{
     display: flex;
+}
+div.closesidebar{
+    display: none;
+}
+
+
+
+
+@media (width < 768px){
+    .sidebar{
+        display: none;
+    }
+    .sidebar.active{
+        display: grid;
+        z-index: 0;
+        width: 50vw;
+    }
+    .profile button h3{
+        font-size: 16px;
+    }
+    div.closesidebar{
+        display: block;
+    }
+}
+
+
+@media (width < 546px){
+    .sidebar.active{
+        display: grid;
+        z-index: 0;
+        width: 80vw;
+    }
 }

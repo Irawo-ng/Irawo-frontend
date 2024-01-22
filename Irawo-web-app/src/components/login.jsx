@@ -2,8 +2,8 @@ import { Link, useNavigate } from "react-router-dom";
 import "../styles/signup.css";
 import googlelogo from "../assets/Google.svg";
 import applelogo from "../assets/Apple.svg";
-import { useState} from "react";
-import { toast } from 'react-hot-toast';
+import { useState, useRef } from "react";
+import { toast } from "react-hot-toast";
 import firebase from "../firebaseConfig";
 
 const linkStyle = {
@@ -14,11 +14,58 @@ const linkStyle = {
 function LogIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  //   useEffect(() => {
-  //     localStorage.setItem("authenticated", JSON.stringify(isLoggedIn));
-  //   });
+  const [errors, setErrors] = useState({
+    emailError: "",
+    passwordError: "",
+  });
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+
+  const checkEmailValidity = () => {
+    const emailInput = emailRef.current;
+    const inputValue = emailInput.value;
+    setEmail(inputValue);
+
+    setErrors({ ...errors, emailError: "" });
+    if (emailInput.validity.valueMissing) {
+      setErrors({ ...errors, emailError: "Email field cannot be empty" });
+    } else if (emailInput.validity.typeMismatch) {
+      setErrors({ ...errors, emailError: "please enter a valid email" });
+    }
+  };
+  const checkPasswordValidity = () => {
+    const passwordInput = passwordRef.current;
+    const passwordValue = passwordInput.value;
+    setPassword(passwordValue);
+
+    setErrors({ ...errors, passwordError: "" });
+    if (passwordInput.validity.valueMissing) {
+      setErrors({ ...errors, passwordError: "password field cannot be empty" });
+    } else if (passwordInput.validity.patternMismatch) {
+      setErrors({
+        ...errors,
+        passwordError:
+          "Password must be greater than 8 characters, contain a number, a special character and an uppercase character",
+      });
+    }
+  };
+
   let navigate = useNavigate();
-  const submit = async () => {
+
+  const submit = async (event) => {
+    event.preventDefault();
+    const emailInput = emailRef.current;
+    const passwordInput = passwordRef.current;
+
+    if (!emailInput.validity.valid) {
+      checkEmailValidity();
+      return;
+    }
+    if (!passwordInput.validity.valid) {
+      checkPasswordValidity();
+      return;
+    }
+
     try {
       const user = await firebase
         .auth()
@@ -27,50 +74,53 @@ function LogIn() {
       if (user) {
         localStorage.setItem("authenticated", "true");
         navigate("/mainpage");
-        toast.success('login successful')
+        toast.success("login successful");
       }
     } catch (error) {
-        toast.error(error)
-        // alert(error);
+      toast.error(error);
+      // alert(error);
     }
   };
 
   return (
     <div className="loginformcontainer">
-      <form action="">
+      <form onSubmit={(event) => submit(event)} noValidate>
         <h1>Login to your account</h1>
         <div className="inputcontainer">
-          <input
-            type="email"
-            placeholder="Email address"
-            name="email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-          <div className="password-container">
+          <div className="email-container i-cont">
+            <input
+              type="email"
+              placeholder="Email address"
+              name="email"
+              value={email}
+              ref={emailRef}
+              onChange={() => {
+                checkEmailValidity();
+              }}
+              required
+            />
+            <span className="email-err err">{errors.emailError}</span>
+          </div>
+          <div className="password-container i-cont">
             <input
               type="password"
               name="password"
               id=""
               placeholder="Password"
               value={password}
-              onChange={(e) => {
-                setPassword(e.target.value);
+              ref={passwordRef}
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              onChange={() => {
+                checkPasswordValidity();
               }}
+              required
             />
+            <span className="password-err err">{errors.passwordError}</span>
             <a href="">Forgot Password</a>
           </div>
         </div>
         <div className="btncontainer">
-          <button
-            className="login-btn"
-            onClick={(e) => {
-              e.preventDefault();
-              submit();
-            }}
-          >
+          <button className="login-btn" type="submit">
             Login
           </button>
           <p>
