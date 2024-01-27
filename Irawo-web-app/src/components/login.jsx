@@ -77,7 +77,9 @@ function LogIn() {
         toast.success("login successful");
       }
     } catch (error) {
-      toast.error(error);
+      toast.error(`${error}`);
+      // toast.error("Login failed. Please check your credentials.");
+      // console.log('LOgin error', error)
       // alert(error);
     }
   };

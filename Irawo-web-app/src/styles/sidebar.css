@@ -14,7 +14,7 @@
 .profile{
     grid-row: 1/2;
     display: flex;
-    padding: 40px 0px 0px 40px;
+    padding: 0px 0px 0px 40px;
     border-bottom: 1px solid #585858;
 }
 .profile .profile-btn{
@@ -62,7 +62,20 @@ div.closesidebar{
 
 
 
-
+@media (width <= 1230px){
+    /* .profile, .navbar, .settings{
+        padding-right: 0px;
+    } */
+    .profile {
+        padding-right: 40px;
+    }
+    .navbar-container .navbar{
+        padding-right: 40px;
+    }
+    .navbar-container .settings{
+        padding-right: 40px;
+    }
+}
 @media (width < 768px){
     .sidebar{
         display: none;

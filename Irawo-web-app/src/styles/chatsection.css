@@ -11,35 +11,32 @@
   background-color: #121213;
   display: flex;
   flex-direction: column;
-  /* position: relative; */
 }
 .avatar{
   display: flex;
   align-items: center;
   justify-content: center;
   padding:5px 0px;
+  /* border: 1px solid red; */
 }
 .avatar img{
-  min-width: 20vw;
-  /* margin: auto; */
+  /* border: 1px solid red; */
+  max-width: 15vw;
 }
 .result-section {
   flex: 1;
   padding: 30px;
-  /* background-color: red; */
 }
 .result-container {
   height: 100%;
   width: 70%;
   margin: auto;
-  /* background-color: blue; */
 }
 .results {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
-  /* background-color: green; */
 }
 .user-question {
   display: flex;

@@ -2,15 +2,9 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    /* border: 1px solid rgb(161, 152, 152); */
 }
 
-
-/* input:-webkit-autofill,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-    transition: background-color 5000s ease-in-out 0s;
-    /* color: #fff; 
-} */
 
 input:-webkit-autofill,
 input:-webkit-autofill:focus {

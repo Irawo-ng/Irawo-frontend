@@ -98,7 +98,8 @@ function SignUp() {
         toast.success("signup successful");
       }
     } catch (error) {
-      alert(error);
+      alert(error)
+      // toast.error(error)
     }
   };
   return (
