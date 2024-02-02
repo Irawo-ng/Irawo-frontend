@@ -2,16 +2,19 @@
 import { useState } from "react";
 import dropdown from "../assets/dropdown.svg";
 import { categories } from "./categories";
-import { roles } from "./categories";
+// import { roles } from "./categories";
 
 export function Categories({ toggleInput }) {
   const [isDropdown, setIsDropdown] = useState({
     categories: false,
-    roles: false,
     authenticateRoles: false,
     scenario: {
       scenarioBoolean: false,
       scenarioArray: [],
+    },
+    roles: {
+      rolesBoolean: false,
+      rolesArray: [],
     },
   });
   const [buttonText, setButtonText] = useState({
@@ -21,14 +24,22 @@ export function Categories({ toggleInput }) {
   });
 
   const rolesBtnFunction = (item) => {
-    setIsDropdown({ ...isDropdown, roles: !isDropdown.roles });
+    setIsDropdown({
+      ...isDropdown,
+      roles: {
+        ...isDropdown.roles,
+        rolesBoolean: !isDropdown.roles.rolesBoolean,
+      },
+    });
     toggleInput();
     setButtonText({
       ...buttonText,
-      rolesBtn: item
-    })
+      rolesBtn: item,
+    });
   };
+
   const authenticateRolesToggle = (item) => {
+    console.log(item);
     setIsDropdown((prevState) => ({
       ...prevState,
       authenticateRoles: prevState.authenticateRoles
@@ -41,14 +52,20 @@ export function Categories({ toggleInput }) {
     }));
     setButtonText({
       ...buttonText,
-      scenariosBtn: item
-    })
+      scenariosBtn: item,
+    });
   };
 
   const handleRolesDropdown = () => {
     console.log(isDropdown.authenticateRoles);
     if (isDropdown.authenticateRoles) {
-      setIsDropdown({ ...isDropdown, roles: !isDropdown.roles });
+      setIsDropdown({
+        ...isDropdown,
+        roles: {
+          ...isDropdown.roles,
+          rolesBoolean: !isDropdown.roles.rolesBoolean,
+        },
+      });
     }
   };
 
@@ -75,14 +92,19 @@ export function Categories({ toggleInput }) {
       categories: !isDropdown.categories,
       scenario: {
         ...isDropdown.scenario,
-        scenarioArray: [...categories[item]],
+        scenarioArray: [...categories[item]["scenario_tags"]],
+      },
+      roles: {
+        ...isDropdown.roles,
+        rolesArray: [...categories[item]["roles"]],
       },
     });
     setButtonText({
       ...buttonText,
-      categoriesBtn: item
-    })
+      categoriesBtn: item,
+    });
   };
+
   return (
     <div className="dropdown-container">
       <div className="dropdown-btn">
@@ -143,19 +165,23 @@ export function Categories({ toggleInput }) {
         >
           {isDropdown.scenario.scenarioArray.map((scenario) => {
             return (
-              <button key={scenario} onClick={() => authenticateRolesToggle(scenario)}>
+              <button
+                key={scenario}
+                onClick={() => authenticateRolesToggle(scenario)}
+              >
                 {scenario}
               </button>
             );
           })}
         </div>
       ) : null}
-      {isDropdown.roles ? (
+      {isDropdown.roles.rolesBoolean &&
+      isDropdown.roles.rolesArray.length > 0 ? (
         <div
           className="dropdown-div"
           style={{ top: "100%", position: "absolute" }}
         >
-          {roles.map((role) => {
+          {isDropdown.roles.rolesArray.map((role) => {
             return (
               <button key={role} onClick={() => rolesBtnFunction(role)}>
                 {" "}
