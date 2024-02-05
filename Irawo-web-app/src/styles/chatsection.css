@@ -18,10 +18,12 @@
   justify-content: center;
   padding:5px 0px;
   /* border: 1px solid red; */
+  margin: auto;
 }
 .avatar img{
   /* border: 1px solid red; */
-  max-width: 15vw;
+  max-width: 80%;
+  height: auto;
 }
 .result-section {
   flex: 1;
@@ -31,6 +33,9 @@
   height: 100%;
   width: 70%;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 .results {
   display: flex;
@@ -148,4 +153,20 @@
   background-color: #bda73d;
   padding: 10px;
   border-radius: 8px;
+}
+
+
+
+.blinking-cursor {
+  margin-left: 5px;
+  background-color: #fff;
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  50.1%, 100% {
+    opacity: 0;
+  }
 }

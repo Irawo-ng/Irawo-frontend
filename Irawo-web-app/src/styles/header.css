@@ -85,8 +85,10 @@
   border: none;
   outline: none;
 }
-
-@media (width < 875px) {
+.header-two {
+  display: none;
+}
+@media (width <= 890px) {
   .dropdown-btn {
     padding: 6px 7px;
     width: 300px;
@@ -100,10 +102,16 @@
     font-size: 14px;
     gap: 7px;
   }
-}
-
-.header-two {
-  display: none;
+  .icons{
+    gap: 20px;
+  }
+  .icons button img{
+    height: auto;
+    width: 25px;
+  }
+  /* .header-one{
+    gap: 30px;
+  } */
 }
 
 @media (width < 768px) {
@@ -145,6 +153,13 @@
   }
   .header-one > .dropdown-container {
     display: none;
+  }
+  .icons{
+    gap: 25px;
+  }
+  .icons button img{
+    height: auto;
+    width: auto;
   }
 }
 

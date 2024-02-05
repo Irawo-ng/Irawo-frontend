@@ -25,7 +25,7 @@ function SideBar({ toggleProfile, sideBar, toggleSideBar }) {
       <div className="profile">
         <button className="profile-btn">
           <img src={userimg} alt=""/>
-          <h6 style={{fontSize: '15px'}}>Thomas victor</h6>
+          <h6>Thomas victor</h6>
           <div onClick={toggleSideBar} className="closesidebar">
             <img src={close} alt="" />
           </div>

@@ -2,7 +2,6 @@
 import { useState } from "react";
 import dropdown from "../assets/dropdown.svg";
 import { categories } from "./categories";
-// import { roles } from "./categories";
 
 export function Categories({ toggleInput }) {
   const [isDropdown, setIsDropdown] = useState({
@@ -194,3 +193,6 @@ export function Categories({ toggleInput }) {
     </div>
   );
 }
+
+
+//Name functions well

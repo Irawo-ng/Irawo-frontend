@@ -1,103 +1,103 @@
 @font-face {
-    font-family: "San Francisco";
-    font-weight: 400;
-    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
 }
 
-.sidebar{
-    background-color: #1e1e1e;
-    grid-column: 1/2;
-    grid-row: 1/3;
-    display: grid;
-    grid-template-rows: 1fr 8fr;
+.sidebar {
+  background-color: #1e1e1e;
+  grid-column: 1/2;
+  grid-row: 1/3;
+  display: grid;
+  grid-template-rows: 1fr 8fr;
 }
-.profile{
-    grid-row: 1/2;
-    display: flex;
-    padding: 0px 0px 0px 40px;
-    border-bottom: 1px solid #585858;
+.profile {
+  grid-row: 1/2;
+  display: flex;
+  padding: 0px 0px 0px 40px;
+  border-bottom: 1px solid #585858;
 }
-.profile .profile-btn{
-    gap: 20px;
+.profile .profile-btn {
+  gap: 20px;
 }
-.navbar-container{
-    grid-row: 2/3;
-    display: flex;
-    flex-direction: column;
+.profile-btn h6 {
+  font-size: 15px;
 }
-.sidebar  button{
-    background-color: transparent;
-    border: none;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    font-size: 20px;
+.navbar-container {
+  grid-row: 2/3;
+  display: flex;
+  flex-direction: column;
 }
-.sidebar .navbar{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding: 40px 0px 0 40px;
+.sidebar button {
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  font-size: 20px;
 }
-.caret-div{
-    display: flex;
-    gap: 30px;
+.sidebar .navbar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 40px 0px 0 40px;
 }
-
-.settings{
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding: 40px 0px 40px 40px;
-    background-color: #232323;
-}
-.history{
-    display: flex;
-}
-div.closesidebar{
-    display: none;
+.caret-div {
+  display: flex;
+  gap: 30px;
 }
 
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 40px 0px 40px 40px;
+  background-color: #232323;
+}
+.history {
+  display: flex;
+}
+div.closesidebar {
+  display: none;
+}
 
-
-@media (width <= 1230px){
-    /* .profile, .navbar, .settings{
+@media (width <= 1240px) {
+  /* .profile, .navbar, .settings{
         padding-right: 0px;
     } */
-    .profile {
-        padding-right: 40px;
-    }
-    .navbar-container .navbar{
-        padding-right: 40px;
-    }
-    .navbar-container .settings{
-        padding-right: 40px;
-    }
+  .profile {
+    padding-right: 40px;
+  }
+  .navbar-container .navbar {
+    padding-right: 40px;
+  }
+  .navbar-container .settings {
+    padding-right: 40px;
+  }
 }
-@media (width < 768px){
-    .sidebar{
-        display: none;
-    }
-    .sidebar.active{
-        display: grid;
-        z-index: 0;
-        width: 50vw;
-    }
-    .profile button h3{
-        font-size: 16px;
-    }
-    div.closesidebar{
-        display: block;
-    }
+@media (width < 768px) {
+  .sidebar {
+    display: none;
+  }
+  .sidebar.active {
+    display: grid;
+    z-index: 0;
+    width: 50vw;
+  }
+  .profile button h3 {
+    font-size: 16px;
+  }
+  div.closesidebar {
+    display: block;
+  }
 }
 
-
-@media (width < 546px){
-    .sidebar.active{
-        display: grid;
-        z-index: 0;
-        width: 80vw;
-    }
+@media (width < 546px) {
+  .sidebar.active {
+    display: grid;
+    z-index: 0;
+    width: 80vw;
+  }
 }
