@@ -17,12 +17,13 @@
   align-items: center;
   justify-content: center;
   padding: 5px 0px;
-  /* border: 1px solid red; */
-  margin: auto;
-  /* background-color: red; */
+  /* margin: auto; */
   position: relative;
 }
-
+.avatar img {
+  max-width: 80%;
+  height: auto;
+}
 .visualcue {
   position: absolute;
   right: 0;
@@ -39,11 +40,6 @@
   100% {
     transform: translateX(-3px);
   } /* Move left again */
-}
-.avatar img {
-  /* border: 1px solid red; */
-  max-width: 80%;
-  height: auto;
 }
 .result-section {
   padding: 30px;

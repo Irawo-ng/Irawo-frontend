@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from "./components/App";
 import Authpage from "./components/Authpage";
 import MainPage from "./components/mainpage";
 import SignUp from "./components/signup";
@@ -15,7 +14,13 @@ import { UserProvider } from "./components/userContext";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Authpage />,
+    children: [
+      {
+        index: true,
+        element: <SignUp />,
+      },
+    ],
   },
   {
     path: "authpage",
