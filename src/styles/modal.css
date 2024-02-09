@@ -1,0 +1,126 @@
+.overlay{
+    position: absolute;
+    /* opacity: 0;  */
+    transition: 1s ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* pointer-events: none; */
+  }
+  .modal-content{
+    position: fixed;
+    /* top: 8vw;
+    left: 45vw; */
+    top: 15%;
+    left: 45%;
+    background-color: #232323;
+    border-radius: 8px;
+    /* pointer-events: auto; */
+    /* padding: 20px; */
+  }
+  .modal-content .modal-content-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 17px 20px 17px;
+  }
+  .modal-content .modal-content-header button{
+    background-color: transparent;
+    border: none;
+  }
+  
+  .modal-content .modal-content-header .h3{
+    font-size: 19px;
+    color: #fff;
+  }
+  .modal-content form{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .modal-content form img{
+    margin: auto;
+    height: 100px;
+    width: 100px;
+  }
+  .modal-content form label{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .modal-content form label input{
+    background-color: transparent;
+    outline: none;
+    border: 1px solid #999999;
+    border-radius: 8px;
+    color: #fff;
+    /* width: 406px; */
+    min-width: 20vw;
+    /* height: 40px; */
+    padding: 10px 5px;
+    font-size: 18px;
+  }
+  .modal-content form button{
+    /* width: 406px; */
+    min-width: 20vw;
+    /* height: 40px; */
+    background-color: #968426;
+    border-radius: 8px;
+    border: none;
+    margin-top: 30px;
+    font-size: 18px;
+    color: white;
+    padding: 10px 5px;
+  }
+
+  @media (width <= 1503px){
+    .modal-content form button{
+      min-width: 30vw;
+    }
+    /* .modal-content{
+      left: 38%;
+    } */
+  }
+  @media (width < 768px){
+    .modal-content form button{
+      min-width: 50vw;
+    }
+    .modal-content{
+      left: 25%;
+    }
+  }
+  @media (width <= 542px){
+    .modal-content form button{
+      min-width: 55vw;
+    }
+    .modal-content{
+      left: 18.5%;
+    }
+  }
+  @media (width <= 406px){
+    .modal-content{
+      left: 15%;
+    }
+  }
+  @media (width <= 382px){
+    .modal-content{
+      left: 13%;
+    }
+  }
+  @media (width <= 346px){
+    .modal-content{
+      left: 7.5%;
+    }
+  }
+  @media (width < 320px){
+    .modal-content{
+      left: 1%;
+    }
+    .modal-content form button{
+      max-width: 40vw;
+    }
+  }
+ 

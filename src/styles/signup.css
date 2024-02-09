@@ -1,0 +1,141 @@
+@font-face {
+    font-family: "San Francisco";
+    font-weight: 400;
+    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+  }
+.signupformcontainer, .loginformcontainer{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    font-family: 'San Francisco';
+    /* background-color: red; */
+    min-width: 30vw;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    width: 100%;
+}
+form > h1{
+    margin: 0px 0px  1.9rem 0px;
+    font-size: 40px;
+}
+form > .inputcontainer{
+    display: flex;
+    flex-direction: column;
+    /* min-width: 563px; */
+}
+.inputcontainer input{
+    border: 1px solid #808080;
+    outline: none;
+    border-radius: 8px;
+    padding: 1.5rem 2.5rem;
+    margin: .7rem 0;
+    background: transparent;
+    font-size: 20px;
+    color: #ffffff;
+}
+.email-container{
+    display: flex;
+    flex-direction: column;
+}
+.password-container{
+    display: flex;
+    flex-direction: column;
+}
+.password-container > a{
+    text-align: right;
+    color: #968426;
+    text-decoration: none;
+    margin-bottom: 1rem;
+}
+.btncontainer{
+    display: flex;
+    flex-direction: column;
+    /* min-width: 563px; */
+    margin: 4em 0px 0px 0px;
+    font-size: 16px;
+}
+.btncontainer > .signup-btn , .login-btn{
+    padding: 1.5rem 0;
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    background-color: #968426;
+    color: white;
+    font-size: 24px;
+} 
+.btncontainer > p{
+    text-align: center;
+    margin: 36px 0px 0px 0px;
+}
+
+.or-separator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+    /* min-width: 563px; */
+}
+
+.line {
+    flex: 1;
+    height: 1px;
+    /* min-width: 199px; */
+    background-color: #9c9c9c;
+}
+
+.or-text {
+    margin: 0 40px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.alt-login-methods{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.alt-login-btn{
+    text-align: center;
+    background: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+}
+.i-cont{
+    position: relative;
+}
+.err{
+    position: absolute;
+    top: 90%;
+    margin: auto;
+    color: rgb(228, 128, 128);
+}
+@media (width <= 731px) {
+    form > h1{
+        font-size: 35px;
+    }
+}
+
+@media (width <= 690px){
+    .signupformcontainer, .loginformcontainer{
+        min-width: 70vw;
+    }
+}
+@media (width <= 350px){
+     form > h1{
+        font-size: 25px;
+    }
+    .signupformcontainer, .loginformcontainer{
+        max-width: 90vw;
+    }
+    form{
+    width: 100%;
+}
+}
