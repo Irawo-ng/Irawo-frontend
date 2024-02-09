@@ -12,22 +12,48 @@
   display: flex;
   flex-direction: column;
 }
-.avatar{
+.avatar {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding:5px 0px;
+  padding: 5px 0px;
   /* border: 1px solid red; */
   margin: auto;
+  /* background-color: red; */
+  position: relative;
 }
-.avatar img{
+
+.visualcue {
+  position: absolute;
+  right: 0;
+  top: 0;
+  animation: shake 0.5s ease-in-out infinite;
+}
+@keyframes shake {
+  0% {
+    transform: translateX(-3px);
+  } /* Move left */
+  50% {
+    transform: translateX(3px);
+  } /* Move right */
+  100% {
+    transform: translateX(-3px);
+  } /* Move left again */
+}
+.avatar img {
   /* border: 1px solid red; */
   max-width: 80%;
   height: auto;
 }
 .result-section {
-  flex: 1;
   padding: 30px;
+  height: 27rem;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.result-section::-webkit-scrollbar {
+  display: none;
 }
 .result-container {
   height: 100%;
@@ -62,20 +88,23 @@
   color: #eee8e8;
   font-family: "Inter", sans-serif;
 }
-.identifier{
+/* .identifier {
   color: white;
   border-radius: 50%;
   background-color: #524b2b;
   padding: 10px;
-}
+} */
 
 /****** Prompt container question *****/
 .fixed-input-container {
-  padding: 30px;
+  padding: 30px 30px;
+  display: flex;
+  align-items: center;
 }
 .fixed-input-container form {
   width: 75%;
   margin: auto;
+  /* background-color: blue; */
 }
 .prompt-container {
   padding: 10px 15px;
@@ -104,10 +133,20 @@
   background-color: transparent;
   border: none;
 }
-.btn-container{
+.btn-container {
   display: flex;
   align-items: center;
   gap: 25px;
+}
+.loading,
+.conversation-null {
+  color: #817f7f;
+  text-align: center;
+}
+@media (width <= 1780px) {
+  .result-section {
+    height: 23rem;
+  }
 }
 
 @media (width < 768px) {
@@ -125,9 +164,11 @@
   .display-div {
     font-size: 15px;
   }
-  .avatar img{
+  .avatar {
+    margin-top: 20px;
+  }
+  .avatar img {
     max-width: 60vw;
-
   }
 }
 
@@ -138,24 +179,29 @@
   .result-container {
     width: 95%;
   }
-  .avatar img{
+  .avatar {
+    margin-top: 0px;
+  }
+  .avatar img {
     padding-top: 2rem;
     min-width: 10vw;
   }
 }
-
-.dark{
-  background-color: #776923;
-  padding: 10px;
-  border-radius: 8px;
+@media (width < 470px) {
+  .visualcue {
+    right: -40px;
+  }
+  .fixed-input-container form {
+    width: 100%;
+    margin: auto;
+  }
 }
-.light{
+
+.light {
   background-color: #bda73d;
   padding: 10px;
   border-radius: 8px;
 }
-
-
 
 .blinking-cursor {
   margin-left: 5px;
@@ -163,10 +209,12 @@
   animation: blink 1s infinite;
 }
 @keyframes blink {
-  0%, 50% {
+  0%,
+  50% {
     opacity: 1;
   }
-  50.1%, 100% {
+  50.1%,
+  100% {
     opacity: 0;
   }
 }

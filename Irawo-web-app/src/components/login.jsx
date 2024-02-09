@@ -2,9 +2,10 @@ import { Link, useNavigate } from "react-router-dom";
 import "../styles/signup.css";
 import googlelogo from "../assets/Google.svg";
 import applelogo from "../assets/Apple.svg";
-import { useState, useRef } from "react";
+import { useState, useRef} from "react";
 import { toast } from "react-hot-toast";
-import firebase from "../firebaseConfig";
+import { signInUserWithEmailAndPasword } from "../auth";
+// import firebase from "../firebaseConfig";
 
 const linkStyle = {
   color: "#968426",
@@ -18,6 +19,7 @@ function LogIn() {
     emailError: "",
     passwordError: "",
   });
+
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
 
@@ -67,20 +69,20 @@ function LogIn() {
     }
 
     try {
-      const user = await firebase
-        .auth()
-        .signInWithEmailAndPassword(email, password);
-
-      if (user) {
-        localStorage.setItem("authenticated", "true");
+      const user = await signInUserWithEmailAndPasword(email, password);
+      console.log(user);
+      if (user.status === 200) {
+        console.log(user);
+        localStorage.setItem("username", user.data.username)
+        localStorage.setItem("authenticated", user.token);
+        localStorage.setItem("refreshToken", user.refreshToken);
         navigate("/mainpage");
         toast.success("login successful");
+      } else {
+        throw new Error(user);
       }
     } catch (error) {
       toast.error(`${error}`);
-      // toast.error("Login failed. Please check your credentials.");
-      // console.log('LOgin error', error)
-      // alert(error);
     }
   };
 

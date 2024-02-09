@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useState, useContext} from "react";
 import dropdown from "../assets/dropdown.svg";
 import { categories } from "./categories";
+import { AppContext } from "./authcontext";
 
 export function Categories({ toggleInput }) {
   const [isDropdown, setIsDropdown] = useState({
@@ -16,6 +17,14 @@ export function Categories({ toggleInput }) {
       rolesArray: [],
     },
   });
+  const { messageState, setMessageState } = useContext(AppContext);
+
+  // const [messageState, setMessageState] = useState({
+  //   categories: "",
+  //   scenario: "",
+  //   roles: "",
+  // });
+
   const [buttonText, setButtonText] = useState({
     categoriesBtn: "Categories",
     scenariosBtn: "Scenario",
@@ -30,10 +39,17 @@ export function Categories({ toggleInput }) {
         rolesBoolean: !isDropdown.roles.rolesBoolean,
       },
     });
+
     toggleInput();
+
     setButtonText({
       ...buttonText,
       rolesBtn: item,
+    });
+
+    setMessageState({
+      ...messageState,
+      roles: item,
     });
   };
 
@@ -49,9 +65,15 @@ export function Categories({ toggleInput }) {
         scenarioBoolean: !prevState.scenario.scenarioBoolean,
       },
     }));
+
     setButtonText({
       ...buttonText,
       scenariosBtn: item,
+    });
+
+    setMessageState({
+      ...messageState,
+      scenario: item,
     });
   };
 
@@ -98,9 +120,15 @@ export function Categories({ toggleInput }) {
         rolesArray: [...categories[item]["roles"]],
       },
     });
+
     setButtonText({
       ...buttonText,
       categoriesBtn: item,
+    });
+
+    setMessageState({
+      ...messageState,
+      categories: item,
     });
   };
 
@@ -193,6 +221,5 @@ export function Categories({ toggleInput }) {
     </div>
   );
 }
-
 
 //Name functions well

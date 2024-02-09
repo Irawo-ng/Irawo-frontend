@@ -30,6 +30,7 @@
   flex-direction: column;
   gap: 5px;
   border-radius: 8px;
+  z-index: 1;
 }
 .dropdown-div button {
   padding: 5px;
@@ -88,6 +89,11 @@
 .header-two {
   display: none;
 }
+
+.speaker{
+  color: #fff;
+  font-size: 50px;
+}
 @media (width <= 890px) {
   .dropdown-btn {
     padding: 6px 7px;
@@ -112,6 +118,9 @@
   /* .header-one{
     gap: 30px;
   } */
+  .speaker{
+    font-size: 35px;
+  }
 }
 
 @media (width < 768px) {

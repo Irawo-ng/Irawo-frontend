@@ -3,9 +3,10 @@ import { useRef, useState } from "react";
 import "../styles/signup.css";
 import googlelogo from "../assets/Google.svg";
 import applelogo from "../assets/Apple.svg";
-import firebase from "../firebaseConfig";
+// import firebase from "../firebaseConfig";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import { createUserWithEmailAndPassword } from "../auth";
 
 const linkStyle = {
   color: "#968426",
@@ -90,16 +91,16 @@ function SignUp() {
     }
 
     try {
-      const user = await firebase
-        .auth()
-        .createUserWithEmailAndPassword(email, password);
-      if (user) {
+      const user = await createUserWithEmailAndPassword(email, password, username)
+      //console.log(user)
+      if (user.status === 201) {
         navigate("/authpage/login");
         toast.success("signup successful");
+      }else{
+        throw new Error(user)
       }
     } catch (error) {
-      alert(error)
-      // toast.error(error)
+      toast.error(`${error}`)
     }
   };
   return (

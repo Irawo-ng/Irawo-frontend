@@ -31,7 +31,7 @@ import { Navigate} from "react-router-dom";
 function PrivateRoute({ children }) {
   const authenticate = localStorage.getItem("authenticated");
 
-  if (authenticate === "true") {
+  if (authenticate !== null) {
     return <>{children}</>;
   } else {
     return <Navigate to="/authpage/login" />;

@@ -12,6 +12,7 @@ import { toast } from "react-hot-toast";
 import "../styles/sidebar.css";
 
 function SideBar({ toggleProfile, sideBar, toggleSideBar }) {
+  
   const navigate = useNavigate();
 
   function logout() {
@@ -25,7 +26,7 @@ function SideBar({ toggleProfile, sideBar, toggleSideBar }) {
       <div className="profile">
         <button className="profile-btn">
           <img src={userimg} alt=""/>
-          <h6>Thomas victor</h6>
+          <h6>{localStorage.getItem("username")}</h6>
           <div onClick={toggleSideBar} className="closesidebar">
             <img src={close} alt="" />
           </div>

@@ -122,7 +122,7 @@ export function Modal({ toggleProfile }) {
             <input
               type="password"
               name="password"
-              id="password"
+              id="new-password"
               value={newUserPassword}
               onChange={(e) => {
                 setNewUserPassword(e.target.value);
