@@ -84,7 +84,7 @@ div.closesidebar {
   }
   .sidebar.active {
     display: grid;
-    z-index: 0;
+    z-index: 1;
     width: 50vw;
   }
   .profile button h3 {
@@ -98,7 +98,7 @@ div.closesidebar {
 @media (width < 546px) {
   .sidebar.active {
     display: grid;
-    z-index: 0;
+    z-index: 1;
     width: 80vw;
   }
 }
